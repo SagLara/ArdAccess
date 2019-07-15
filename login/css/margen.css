@@ -1,0 +1,12 @@
+.margen{
+    display:inline-block;
+    text-align:center;
+    background-size:25px;
+    padding-left:25px;
+    background-position:0 50%;
+    background-repeat:no-repeat;
+}
+	
+.small {
+  font-variant: small-caps;
+}
