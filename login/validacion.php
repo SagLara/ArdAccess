@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>ArdAccess ERROR</title>
+	<title>ArdAccess VALIDACION</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="images/icons/enter.png"/>
@@ -29,13 +29,13 @@
 		<div class="container-login100" style="background-image: url('images/bg-03.jpg');">
 			<div class="wrap-login100">
 					<span class="login100-form-title ">
-						Ard Access<br>Error
+						Ard Access<br>Validacion
 					</span>
 					<span class="login100-form-description p-b-24 p-t-20">
 						<h1><?php echo $_GET['mensaje'];?></h1>
 					</span>
 				<div class="container-login100-form-btn p-b-15 p-t-5">
-					<a href="index.php"><button class="login100-form-btn">
+					<a href="menu.php"><button class="login100-form-btn">
 						Volver
 					</button></a>
 				</div>

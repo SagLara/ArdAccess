@@ -40,7 +40,7 @@
 		<div class="container-login100" style="background-image: url('images/bg-03.jpg');">
 			
 			<div class="wrap-login100">
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" method="post">
 					<span class="login100-form-title ">
 						Ard Access<br>Monitoreo de Acceso
 					</span>
@@ -51,9 +51,12 @@
 						<input class="input100" type="date" name="fechaAcs" placeholder="Fecha Accesos">
 						<span class="focus-input100" data-placeholder="&#xf13c;"></span>
 					</div>
+					<div>
+						<?php include "controller_monitoreo.php"; ?>
+					</div>
 					<div class="container-login100-form-btn p-b-15 p-t-5">
-						<button class="login100-form-btn" onclick="pulsar()">
-							Aceptar
+						<button class="login100-form-btn" type="submit" name="Buscar">
+							Buscar Fecha
 						</button>
 					</div>
 				</form>

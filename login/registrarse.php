@@ -42,7 +42,7 @@
 		<div class="container-login100" style="background-image: url('images/bg-03.jpg');">
 			
 			<div class="wrap-login100">
-				<form class="login100-form validate-form" action="controller_login.php" method="post">
+				<form class="login100-form validate-form" id="formRegistro" method="post">
 					<span class="login100-form-title ">
 						Ard Access<br>Registrar Usuario
 					</span>
@@ -50,11 +50,11 @@
 						Señor administrador a continuacion ingrese los datos
 					</span>
 					<div class="wrap-input100 validate-input" data-validate="Ingrese su No. Identificacion">
-						<input class="input100" type="text" name="id" placeholder="No. Identificacion">
+						<input class="input100" type="text" name="idUser" placeholder="No. Identificacion">
 						<span class="focus-input100" data-placeholder="&#xf183;"></span>
 					</div>
 					<div class="wrap-input100 validate-input" data-validate = "Ingrese su Nombre de Usuario">
-						<input class="input100" type="text" name="username" placeholder="Nombre">
+						<input class="input100" type="text" name="nombreUs" placeholder="Nombre">
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
 					<div class="wrap-input100 validate-input" data-validate="Ingrese su huella dactilar">
@@ -66,8 +66,8 @@
 						<span class="focus-input100" data-placeholder="&#xf122;"></span>
 					</div>
 					<div class="container-login100-form-btn p-b-15 p-t-5">
-						<button class="login100-form-btn" name="registrarse" onclick="pulsar()">
-							Aceptar
+						<button class="login100-form-btn" type="submit" name="registrarse">
+							Registrar
 						</button>
 					</div>
 				</form>

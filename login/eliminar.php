@@ -40,7 +40,7 @@
 		<div class="container-login100" style="background-image: url('images/bg-03.jpg');">
 			
 			<div class="wrap-login100">
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" id="formEliminar">
 					<span class="login100-form-title ">
 						Ard Access<br>Eliminar Usuario
 					</span>
@@ -48,12 +48,12 @@
 						Señor administrador ingrese el No. Identificacion del usuario a eliminar
 					</span>
 					<div class="wrap-input100 validate-input" data-validate="Ingrese su No. Identificacion">
-						<input class="input100" type="text" name="id" placeholder="No. Identificacion">
+						<input class="input100" type="text" name="idUser" placeholder="No. Identificacion">
 						<span class="focus-input100" data-placeholder="&#xf183;"></span>
 					</div>
 					<div class="container-login100-form-btn p-b-15 p-t-5">
-						<button class="login100-form-btn" onclick="pulsar()">
-							Aceptar
+						<button class="login100-form-btn" type="submit" name=eliminar">
+							Eliminar
 						</button>
 					</div>
 				</form>
