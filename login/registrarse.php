@@ -12,7 +12,7 @@
 	<title>ArdAccess Registrar Usuario</title>
 	<SCRIPT languaje="JavaScript">
 		function pulsar() {
-		alert("El usuario ha sido registrado satisfactoriamente");
+		alert("Por favor ponga su dedo indice derecho en el lector biometrico");
 		}
 	</SCRIPT>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -57,16 +57,12 @@
 						<input class="input100" type="text" name="nombreUs" placeholder="Nombre">
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
-					<div class="wrap-input100 validate-input" data-validate="Ingrese su huella dactilar">
-						<input class="input100" type="password" name="pass" placeholder="Huella Dactilar">
-						<span class="focus-input100" data-placeholder="&#xf1c8;"></span>
-					</div>
 					<div class="wrap-input100 validate-input" data-validate="Ingrese su fecha de nacimiento">
 						<input class="input100" type="date" name="fechaNac" placeholder="Fecha de Nacimiento">
 						<span class="focus-input100" data-placeholder="&#xf122;"></span>
 					</div>
 					<div class="container-login100-form-btn p-b-15 p-t-5">
-						<button class="login100-form-btn" type="submit" name="registrarse">
+						<button class="login100-form-btn" type="submit" name="registrarse" onclick="pulsar()">
 							Registrar
 						</button>
 					</div>

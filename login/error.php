@@ -35,7 +35,7 @@
 						<h1><?php echo $_GET['mensaje'];?></h1>
 					</span>
 				<div class="container-login100-form-btn p-b-15 p-t-5">
-					<a href="index.php"><button class="login100-form-btn">
+					<a href="menu.php"><button class="login100-form-btn">
 						Volver
 					</button></a>
 				</div>
