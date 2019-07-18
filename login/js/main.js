@@ -28,6 +28,90 @@ jQuery(document).on('submit','#formlog',function(event){
 		console.log("complete");
 	});
 });		
+
+jQuery(document).on('submit','#formEditar',function(event){
+	event.preventDefault();
+	
+	jQuery.ajax({
+		url:'controller_editar.php',
+		type:'POST',
+		dataType:'json',
+		data: $(this).serialize(),
+		beforeSend: function(){
+			//$('.entrar').val('Validando...');
+		}
+	})
+	.done(function(respuesta){
+		console.log(respuesta);
+		if(!respuesta.error){
+			location.href = 'validacion.php?mensaje=Usuario actualizado';
+		}else{
+			location.href = 'error.php?mensaje=El No. Identificacion es incorrecto';
+		}			
+	})
+	.fail(function(resp){
+		console.log(resp.responseText);
+	})
+	.always(function(){
+		console.log("complete");
+	});
+});
+
+jQuery(document).on('submit','#formEliminar',function(event){
+	event.preventDefault();
+	
+	jQuery.ajax({
+		url:'controller_eliminar.php',
+		type:'POST',
+		dataType:'json',
+		data: $(this).serialize(),
+		beforeSend: function(){
+			//$('.entrar').val('Validando...');
+		}
+	})
+	.done(function(respuesta){
+		console.log(respuesta);
+		if(!respuesta.error){
+			location.href = 'validacion.php?mensaje=Usuario Eliminado :(';
+		}else{
+			location.href = 'error.php?mensaje=El No. Identificacion es incorrecto';
+		}			
+	})
+	.fail(function(resp){
+		console.log(resp.responseText);
+	})
+	.always(function(){
+		console.log("complete");
+	});
+});
+
+jQuery(document).on('submit','#formRegistro',function(event){
+	event.preventDefault();
+	
+	jQuery.ajax({
+		url:'controller_registro.php',
+		type:'POST',
+		dataType:'json',
+		data: $(this).serialize(),
+		beforeSend: function(){
+			//$('.entrar').val('Validando...');
+		}
+	})
+	.done(function(respuesta){
+		console.log(respuesta);
+		if(!respuesta.error){
+			location.href = 'validacion.php?mensaje=Usuario Registrado :)';
+		}else{
+			location.href = 'error.php?mensaje=El No. Identificacion ya existe';
+		}			
+	})
+	.fail(function(resp){
+		console.log(resp.responseText);
+	})
+	.always(function(){
+		console.log("complete");
+	});
+});
 				
 
     // /*==================================================================
