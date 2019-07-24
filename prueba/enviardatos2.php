@@ -1,5 +1,4 @@
 <?php
-
 $enlace = mysqli_connect("localhost", "root", "", "login");
 
 if (!$enlace) {
@@ -10,16 +9,16 @@ if (!$enlace) {
 }
 
 echo "Éxito: Se realizó una conexión apropiada a MySQL! La base de datos login es genial." . PHP_EOL;
-$enlace->set_charset('utf8');
 
-$chipid="";
-$temperatura="";
-
-$chipid = $enlace->real_escape_string($_POST ['chipid']);
-$temperatura = $enlace->real_escape_string($_POST ['temperatura']);
+$datos=$_GET;
+$chipid=$_GET['chipid'];
+$temperatura=$_GET['temperatura'];
+echo "Hola el chipid es: ";
+echo $chipid;
+echo ", la temperatura es de: ";
+echo $temperatura;
 
 $sql ="INSERT INTO registro (id, chipId, fecha, temperatura) VALUES (NULL, '$chipid', CURRENT_TIMESTAMP, '$temperatura')";
-
 
 if (mysqli_query($enlace, $sql)) {
       echo "New record created successfully";
@@ -31,4 +30,3 @@ mysqli_close($enlace);
 
 echo "Datos ingresados correctamente.";
 ?>
-
