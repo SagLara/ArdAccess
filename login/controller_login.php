@@ -1,7 +1,8 @@
 <?php 
-	//require_once('usuario.php');
-	//require_once('crud_usuario.php');
-	//inicio de sesion
+	session_start();
+	if(!isset($_SESSION['usuario'])) {
+		header('Location: index.php');
+	}
 	if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH'])=='xmlhttprequest'){
 		require 'conexion.php';
 		sleep(0.2);

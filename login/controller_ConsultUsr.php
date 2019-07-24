@@ -1,5 +1,9 @@
 <?php 
-	// if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH'])=='xmlhttprequest'){
+	
+	session_start();
+	if(!isset($_SESSION['usuario'])) {
+		header('Location: index.php');
+	}	
 	require 'conexion.php';
 	
 	$idUser="";
