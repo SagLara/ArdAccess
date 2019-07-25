@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-07-2019 a las 05:53:00
+-- Tiempo de generación: 25-07-2019 a las 05:41:55
 -- Versión del servidor: 10.3.16-MariaDB
 -- Versión de PHP: 7.3.7
 
@@ -32,7 +32,7 @@ USE `login`;
 
 CREATE TABLE `huellas` (
   `IDHUELLA` bigint(20) UNSIGNED NOT NULL,
-  `HUELLA` binary(12) NOT NULL,
+  `HUELLA` int(12) NOT NULL,
   `IDUSER` varchar(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -41,30 +41,13 @@ CREATE TABLE `huellas` (
 --
 
 INSERT INTO `huellas` (`IDHUELLA`, `HUELLA`, `IDUSER`) VALUES
-(1, 0x000000000000000000000000, '12'),
-(2, 0x010000000000000000000000, '12');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `registro`
---
-
-CREATE TABLE `registro` (
-  `id` int(255) NOT NULL,
-  `chipid` varchar(255) DEFAULT NULL,
-  `fecha` datetime DEFAULT NULL,
-  `temperatura` float(6,2) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `registro`
---
-
-INSERT INTO `registro` (`id`, `chipid`, `fecha`, `temperatura`) VALUES
-(287, '5930757', '2019-07-17 00:55:33', 53.00),
-(288, '5930757', '2019-07-17 00:55:38', 13.00),
-(289, '5930757', '2019-07-17 00:55:43', 10.00);
+(1, 13, '1023975386'),
+(4, 1, '81'),
+(5, 17, '52'),
+(6, 18, '131313'),
+(8, 19, '1813'),
+(10, 20, '46'),
+(11, 21, '123');
 
 -- --------------------------------------------------------
 
@@ -84,8 +67,18 @@ CREATE TABLE `registros` (
 --
 
 INSERT INTO `registros` (`IDRegistros`, `HORA_USO`, `ACCESO`, `IDUSER`) VALUES
-(1, '2019-07-15 00:00:00', 'A', '1023975386'),
-(2, '2019-07-15 00:00:00', 'D', '-1');
+(56, '2019-07-24 22:26:44', 'D', '0'),
+(57, '2019-07-24 22:26:54', 'D', '0'),
+(58, '2019-07-24 22:27:00', 'A', '1813'),
+(59, '2019-07-24 22:27:19', 'A', '1023975386'),
+(60, '2019-07-24 22:27:25', 'D', '0'),
+(67, '2019-07-24 22:32:30', 'D', '0'),
+(68, '2019-07-24 22:33:09', 'D', '0'),
+(69, '2019-07-24 22:33:42', 'D', '0'),
+(70, '2019-07-24 22:34:04', 'D', '0'),
+(71, '2019-07-24 22:34:13', 'A', '46'),
+(72, '2019-07-24 22:34:46', 'A', '46'),
+(73, '2019-07-24 22:35:11', 'D', '0');
 
 -- --------------------------------------------------------
 
@@ -105,9 +98,13 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`IDUSER`, `NOMBRE`, `f_nacimiento`, `FECHA_Registros`) VALUES
-('1023975386', 'Sergio Gomez', '1999-03-18', '2019-07-15'),
-('12', 'Jorge Michelin', '2017-06-26', '2019-07-15'),
-('13', 'Seryi', '2019-07-06', '2019-07-17');
+('1023975386', 'Sergio Gomez Lara', '1999-03-18', '2019-07-24'),
+('123', 'Andres Ramirez', '2019-06-30', '2019-07-24'),
+('131313', 'JUAN lara', '2019-06-30', '2019-07-24'),
+('1813', 'Alejandro Lara', '1999-07-07', '2019-07-24'),
+('46', 'Sergio Lara', '1999-07-10', '2019-07-24'),
+('52', 'ivonne G.', '1985-03-30', '2019-07-24'),
+('81', 'julian g.', '1981-10-30', '2019-07-24');
 
 -- --------------------------------------------------------
 
@@ -141,12 +138,6 @@ ALTER TABLE `huellas`
   ADD KEY `FK_users_Huellas` (`IDUSER`);
 
 --
--- Indices de la tabla `registro`
---
-ALTER TABLE `registro`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indices de la tabla `registros`
 --
 ALTER TABLE `registros`
@@ -174,13 +165,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `huellas`
 --
 ALTER TABLE `huellas`
-  MODIFY `IDHUELLA` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT de la tabla `registro`
---
-ALTER TABLE `registro`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=290;
+  MODIFY `IDHUELLA` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `registros`
@@ -360,7 +345,7 @@ CREATE TABLE `pma__recent` (
 --
 
 INSERT INTO `pma__recent` (`username`, `tables`) VALUES
-('root', '[{\"db\":\"login\",\"table\":\"registros\"},{\"db\":\"login\",\"table\":\"users\"},{\"db\":\"login\",\"table\":\"usuarios\"},{\"db\":\"login\",\"table\":\"huellas\"},{\"db\":\"login\",\"table\":\"registro\"}]');
+('root', '[{\"db\":\"login\",\"table\":\"registros\"},{\"db\":\"login\",\"table\":\"huellas\"},{\"db\":\"login\",\"table\":\"users\"},{\"db\":\"login\",\"table\":\"usuarios\"},{\"db\":\"login\",\"table\":\"registro\"}]');
 
 -- --------------------------------------------------------
 
@@ -445,6 +430,7 @@ CREATE TABLE `pma__table_uiprefs` (
 --
 
 INSERT INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, `last_update`) VALUES
+('root', 'login', 'registros', '{\"sorted_col\":\"`IDRegistros` ASC\"}', '2019-07-25 03:35:35'),
 ('root', 'login', 'users', '[]', '2019-07-18 03:00:03');
 
 -- --------------------------------------------------------
@@ -483,7 +469,7 @@ CREATE TABLE `pma__userconfig` (
 --
 
 INSERT INTO `pma__userconfig` (`username`, `timevalue`, `config_data`) VALUES
-('root', '2019-07-18 03:21:54', '{\"Console\\/Mode\":\"show\",\"lang\":\"es\",\"Console\\/Height\":184}');
+('root', '2019-07-25 03:41:32', '{\"Console\\/Mode\":\"show\",\"lang\":\"es\",\"Console\\/Height\":184}');
 
 -- --------------------------------------------------------
 
@@ -652,7 +638,7 @@ ALTER TABLE `pma__column_info`
 -- AUTO_INCREMENT de la tabla `pma__export_templates`
 --
 ALTER TABLE `pma__export_templates`
-  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `pma__history`
