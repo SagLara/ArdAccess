@@ -15,16 +15,21 @@
 
 	echo "Éxito: Se realizó una conexión apropiada a MySQL! La base de datos login es genial." . PHP_EOL;
 
+
 	$datos=$_GET;
-	$huella=$_GET['FingerPrintID'];
+	$huella=$_GET['huellaid'];
 	echo "Hola tu coincidencia de huella es: ";
 	echo $huella;
 
-	$aux ="SELECT IDUSER FROM huellas WHERE IDHuella='$huella' AND users.IDUSER=huellas.IDUSER";
-	$resultado=$mysqli->query($aux);
-	if ($row = $resultado->fetch_row()) {
+	$aux ="SELECT IDUSER FROM huellas WHERE HUELLA='$huella'";
+	$result=mysqli_query($enlace,$aux);
+	$data=mysqli_fetch_assoc($result);
+	echo "Este es el Usuario: ".(($data['IDUSER']));
+	$idUser=$data['IDUSER'];
+	$resultado=$enlace->query($aux);
+	if ($huella!=0) {
 		echo "Se creara el registro de acceso al usuario";
-		$sql ="INSERT INTO registros (IDRegistros, HORA_USO,ACCESO,IDUSER) VALUES (NULL, CURRENT_TIMESTAMP , 'A' , '$row['IDUSER']')";
+		$sql ="INSERT INTO registros (IDRegistros, HORA_USO,ACCESO,IDUSER) VALUES (NULL, CURRENT_TIMESTAMP , 'A' , '$idUser')";
 		if (mysqli_query($enlace, $sql)) {
 			echo "Nuevo registro creado satisfactoriamente";
 		} else {
@@ -32,7 +37,7 @@
 		}
 	} else {
 		echo "Se creara el registro de acceso al usuario";
-		$sql ="INSERT INTO registros (IDRegistros, HORA_USO,ACCESO,IDUSER) VALUES (NULL, CURRENT_TIMESTAMP , 'D' , '-1')";
+		$sql ="INSERT INTO registros (IDRegistros, HORA_USO,ACCESO,IDUSER) VALUES (NULL, CURRENT_TIMESTAMP , 'D' , '0')";
 		if (mysqli_query($enlace, $sql)) {
 			echo "Nuevo registro creado satisfactoriamente";
 		} else {
